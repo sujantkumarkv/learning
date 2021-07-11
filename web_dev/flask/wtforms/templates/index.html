@@ -1,0 +1,10 @@
+
+{% extends "bootstrap/base.html" %}
+{% block title %}HOME {% endblock %}
+
+{% block body %} 
+    <h1>SERVER RUNNING LOCALLY</h1>
+    <div class="container">
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Go to login</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+    <!--
+    <body>
+
+            THE CODE BELOW IS COMMENTED as we would directly create a quick-form with flask_bootstrap :)
+
+        <form method="POST"  action="{{url_for('login')}}" novalidate>
+        <!--Why <novalidate>? To run our form validators instead of browser's DEFAULT,gotta disable it first
+            {{ form.csrf_token }} 
+            <h1>LOGIN</h1>
+
+                <p>{{ form.email.label }} <br> {{ form.email(size=51) }}</p>
+                {% for err in form.email.errors %}
+                <span style="color: red;">{{ err }}</span>
+                {% endfor %}
+
+                <p>{{ form.password.label }} <br> {{ form.password(size=51) }}</p>  
+                {% for err in form.password.errors %}
+                <span style="color: red;">{{ err }}</span>
+                {% endfor %}               
+
+            <!--Replacing this with {{form.submit}} via SubmitField of Flask-WTF<input type="submit" value="Login">
+            {{ form.submit }}
+        </form>
+        
+
+        <script src="" async defer></script>
+    </body>
+    --->
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%} LOGIN page {% endblock%}
+
+{% block body %} 
+    <div class="container" >
+        <h1>LOGIN </h1>
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}
