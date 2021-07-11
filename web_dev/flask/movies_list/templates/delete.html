@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %} Delete a movie from list{% endblock %}
+
+{% block content %}
+<div class="content">
+  <h1 class="heading">{{ movie.title }}</h1>
+    <h2 class="description">Delete a movie from the list !!</h2>
+    <form action="{{ url_for('delete_movie', id=movie.id) }}" method='POST'>
+        <h3>Are you sure you wanna delete {{ movie.title}} ?</h3>
+        <br><br>
+        <a type="submit" class="btn btn-primary" href="{{ url_for('delete_movie', id=movie.id) }}" role="button">Delete</a>
+    </form>
+  </div>
+{% endblock %}
