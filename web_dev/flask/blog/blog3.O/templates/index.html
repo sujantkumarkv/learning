@@ -1,0 +1,49 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('static/img/home-bg.gif')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Sujant's Blog</h1>
+            <span class="subheading">Blogs that educate..</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BLOG CONTENT LIST :) -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in all_posts %}
+        <div class="post-preview">
+          <a href="{{ url_for('show_blogpost', id=post.id) }}"> <!-- post["id"] can be used too, this is just a 
+                                                                        JINJA FEATURE to use it this way. -->
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{post.author}}</a>
+            on {{post.date}}</p>
+        </div>
+        <hr>
+        {% endfor %}
+
+        <!-- New Post -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{ url_for('new_post') }}">Create New Post</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+{% include "footer.html" %}
